@@ -1,0 +1,252 @@
++----------+-------+----------+----+------+-----------+
+|EmployeeID|   Name|Department| Age|Salary|JoiningDate|
++----------+-------+----------+----+------+-----------+
+|       101|  Alice|        HR|  28| 45000| 2022-01-15|
+|       102|    Bob|        IT|  32| 60000| 2020-05-20|
+|       103|Charlie|   Finance|NULL| 52000| 2021-03-10|
+|       104|  David|        IT|  35|  NULL| 2019-11-25|
+|       105|    Eva|        HR|  30| 48000|       NULL|
+|       106|  Frank|   Finance|  41| 85000| 2016-07-18|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       108|  Henry|      NULL|  26| 55000| 2022-10-01|
+|       109|    Ivy| Marketing|  31| 50000| 2021-09-12|
+|       110|   Jack|   Finance|  38| 78000| 2018-04-05|
++----------+-------+----------+----+------+-----------+
+
+root
+ |-- EmployeeID: integer (nullable = true)
+ |-- Name: string (nullable = true)
+ |-- Department: string (nullable = true)
+ |-- Age: integer (nullable = true)
+ |-- Salary: integer (nullable = true)
+ |-- JoiningDate: date (nullable = true)
+
+
+========== DROP NULL VALUES ==========
++----------+-----+----------+---+------+-----------+
+|EmployeeID| Name|Department|Age|Salary|JoiningDate|
++----------+-----+----------+---+------+-----------+
+|       101|Alice|        HR| 28| 45000| 2022-01-15|
+|       102|  Bob|        IT| 32| 60000| 2020-05-20|
+|       106|Frank|   Finance| 41| 85000| 2016-07-18|
+|       107|Grace| Marketing| 27| 42000| 2023-02-14|
+|       107|Grace| Marketing| 27| 42000| 2023-02-14|
+|       109|  Ivy| Marketing| 31| 50000| 2021-09-12|
+|       110| Jack|   Finance| 38| 78000| 2018-04-05|
++----------+-----+----------+---+------+-----------+
+
+
+========== FILL NULL VALUES ==========
++----------+-------+----------+---+------+-----------+
+|EmployeeID|   Name|Department|Age|Salary|JoiningDate|
++----------+-------+----------+---+------+-----------+
+|       101|  Alice|        HR| 28| 45000| 2022-01-15|
+|       102|    Bob|        IT| 32| 60000| 2020-05-20|
+|       103|Charlie|   Finance|  0| 52000| 2021-03-10|
+|       104|  David|        IT| 35|     0| 2019-11-25|
+|       105|    Eva|        HR| 30| 48000|       NULL|
+|       106|  Frank|   Finance| 41| 85000| 2016-07-18|
+|       107|  Grace| Marketing| 27| 42000| 2023-02-14|
+|       107|  Grace| Marketing| 27| 42000| 2023-02-14|
+|       108|  Henry|   Unknown| 26| 55000| 2022-10-01|
+|       109|    Ivy| Marketing| 31| 50000| 2021-09-12|
+|       110|   Jack|   Finance| 38| 78000| 2018-04-05|
++----------+-------+----------+---+------+-----------+
+
+
+========== REMOVE DUPLICATES ==========
++----------+-------+----------+---+------+-----------+
+|EmployeeID|   Name|Department|Age|Salary|JoiningDate|
++----------+-------+----------+---+------+-----------+
+|       101|  Alice|        HR| 28| 45000| 2022-01-15|
+|       102|    Bob|        IT| 32| 60000| 2020-05-20|
+|       103|Charlie|   Finance|  0| 52000| 2021-03-10|
+|       104|  David|        IT| 35|     0| 2019-11-25|
+|       105|    Eva|        HR| 30| 48000|       NULL|
+|       106|  Frank|   Finance| 41| 85000| 2016-07-18|
+|       107|  Grace| Marketing| 27| 42000| 2023-02-14|
+|       108|  Henry|   Unknown| 26| 55000| 2022-10-01|
+|       109|    Ivy| Marketing| 31| 50000| 2021-09-12|
+|       110|   Jack|   Finance| 38| 78000| 2018-04-05|
++----------+-------+----------+---+------+-----------+
+
+
+========== TYPE CASTING ==========
+root
+ |-- EmployeeID: integer (nullable = true)
+ |-- Name: string (nullable = true)
+ |-- Department: string (nullable = true)
+ |-- Age: integer (nullable = true)
+ |-- Salary: integer (nullable = true)
+ |-- JoiningDate: date (nullable = true)
+
+
+========== STRING FUNCTIONS ==========
+
+========== UPPER CASE ==========
++--------------+
+|Uppercase Name|
++--------------+
+|         ALICE|
+|           BOB|
+|       CHARLIE|
+|         DAVID|
+|           EVA|
+|         FRANK|
+|         GRACE|
+|         GRACE|
+|         HENRY|
+|           IVY|
+|          JACK|
++--------------+
+
+
+========== LOWER CASE ==========
++--------------+
+|Lowercase Name|
++--------------+
+|         alice|
+|           bob|
+|       charlie|
+|         david|
+|           eva|
+|         frank|
+|         grace|
+|         grace|
+|         henry|
+|           ivy|
+|          jack|
++--------------+
+
+
+========== STRING LENGTH ==========
++-----------+
+|Name Length|
++-----------+
+|          5|
+|          3|
+|          7|
+|          5|
+|          3|
+|          5|
+|          5|
+|          5|
+|          5|
+|          3|
+|          4|
++-----------+
+
+
+========== DATE FUNCTIONS ==========
++----------+-------+----------+----+------+-----------+
+|EmployeeID|   Name|Department| Age|Salary|JoiningDate|
++----------+-------+----------+----+------+-----------+
+|       101|  Alice|        HR|  28| 45000| 2022-01-15|
+|       102|    Bob|        IT|  32| 60000| 2020-05-20|
+|       103|Charlie|   Finance|NULL| 52000| 2021-03-10|
+|       104|  David|        IT|  35|  NULL| 2019-11-25|
+|       105|    Eva|        HR|  30| 48000|       NULL|
+|       106|  Frank|   Finance|  41| 85000| 2016-07-18|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       108|  Henry|      NULL|  26| 55000| 2022-10-01|
+|       109|    Ivy| Marketing|  31| 50000| 2021-09-12|
+|       110|   Jack|   Finance|  38| 78000| 2018-04-05|
++----------+-------+----------+----+------+-----------+
+
+root
+ |-- EmployeeID: integer (nullable = true)
+ |-- Name: string (nullable = true)
+ |-- Department: string (nullable = true)
+ |-- Age: integer (nullable = true)
+ |-- Salary: integer (nullable = true)
+ |-- JoiningDate: date (nullable = true)
+
+
+========== EXTRACT YEAR ==========
++-------+------------+
+|   Name|Joining Date|
++-------+------------+
+|  Alice|        2022|
+|    Bob|        2020|
+|Charlie|        2021|
+|  David|        2019|
+|    Eva|        NULL|
+|  Frank|        2016|
+|  Grace|        2023|
+|  Grace|        2023|
+|  Henry|        2022|
+|    Ivy|        2021|
+|   Jack|        2018|
++-------+------------+
+
+
+========== DAY 3 CHALLENGE ==========
+
+========== DAY 3 CHALLENGE ==========
+Challenge 1: Convert every department name to UPPERCASE.
++----------+
+|Department|
++----------+
+|        HR|
+|   Finance|
+| Marketing|
+|        IT|
++----------+
+
+Challenge 2: Show the number of letters in each department.
++----------+-----------------+
+|Department|Department Length|
++----------+-----------------+
+|        HR|                2|
+|   Finance|                7|
+| Marketing|                9|
+|        IT|                2|
++----------+-----------------+
+
+Challenge 3: Show the year of joining for each employee.
++-----+------------+
+| Name|Joining Year|
++-----+------------+
+|Alice|        2022|
+|  Bob|        2020|
+|Frank|        2016|
+|Grace|        2023|
+|Grace|        2023|
+|  Ivy|        2021|
+| Jack|        2018|
++-----+------------+
+
+Remove duplicate employeeIDs
++----------+-------+----------+----+------+-----------+
+|EmployeeID|   Name|Department| Age|Salary|JoiningDate|
++----------+-------+----------+----+------+-----------+
+|       101|  Alice|        HR|  28| 45000| 2022-01-15|
+|       102|    Bob|        IT|  32| 60000| 2020-05-20|
+|       103|Charlie|   Finance|NULL| 52000| 2021-03-10|
+|       104|  David|        IT|  35|  NULL| 2019-11-25|
+|       105|    Eva|        HR|  30| 48000|       NULL|
+|       106|  Frank|   Finance|  41| 85000| 2016-07-18|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       108|  Henry|      NULL|  26| 55000| 2022-10-01|
+|       109|    Ivy| Marketing|  31| 50000| 2021-09-12|
+|       110|   Jack|   Finance|  38| 78000| 2018-04-05|
++----------+-------+----------+----+------+-----------+
+
+Fill missing salaries with 50,000 instead of 0
++----------+-------+----------+----+------+-----------+
+|EmployeeID|   Name|Department| Age|Salary|JoiningDate|
++----------+-------+----------+----+------+-----------+
+|       101|  Alice|        HR|  28| 45000| 2022-01-15|
+|       102|    Bob|        IT|  32| 60000| 2020-05-20|
+|       103|Charlie|   Finance|NULL| 52000| 2021-03-10|
+|       104|  David|        IT|  35| 50000| 2019-11-25|
+|       105|    Eva|        HR|  30| 48000|       NULL|
+|       106|  Frank|   Finance|  41| 85000| 2016-07-18|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       108|  Henry|      NULL|  26| 55000| 2022-10-01|
+|       109|    Ivy| Marketing|  31| 50000| 2021-09-12|
+|       110|   Jack|   Finance|  38| 78000| 2018-04-05|
++----------+-------+----------+----+------+-----------+
