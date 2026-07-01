@@ -1,0 +1,188 @@
+========== EMPLOYEE DATA ==========
++----------+-------+----------+----+------+-----------+
+|EmployeeID|   Name|Department| Age|Salary|JoiningDate|
++----------+-------+----------+----+------+-----------+
+|       101|  Alice|        HR|  28| 45000| 2022-01-15|
+|       102|    Bob|        IT|  32| 60000| 2020-05-20|
+|       103|Charlie|   Finance|NULL| 52000| 2021-03-10|
+|       104|  David|        IT|  35|  NULL| 2019-11-25|
+|       105|    Eva|        HR|  30| 48000|       NULL|
+|       106|  Frank|   Finance|  41| 85000| 2016-07-18|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       107|  Grace| Marketing|  27| 42000| 2023-02-14|
+|       108|  Henry|      NULL|  26| 55000| 2022-10-01|
+|       109|    Ivy| Marketing|  31| 50000| 2021-09-12|
+|       110|   Jack|   Finance|  38| 78000| 2018-04-05|
++----------+-------+----------+----+------+-----------+
+
+
+========== DEPARTMENT DATA ==========
++----------+-------+
+|Department|Manager|
++----------+-------+
+|        HR|  Susan|
+|        IT|Michael|
+|   Finance| Robert|
+| Marketing|   Emma|
++----------+-------+
+
+
+========== TOTAL EMPLOYEES ==========
+10
+
+========== SCHEMA ==========
+root
+ |-- EmployeeID: integer (nullable = true)
+ |-- Name: string (nullable = true)
+ |-- Department: string (nullable = true)
+ |-- Age: integer (nullable = true)
+ |-- Salary: integer (nullable = true)
+ |-- JoiningDate: date (nullable = true)
+
+
+========== NUMBER OF DEPARTMENTS ==========
+4
+
+========== DEPARTMENT LIST ==========
++----------+
+|Department|
++----------+
+|        HR|
+|   Finance|
+| Marketing|
+|        IT|
++----------+
+
+
+========== EMPLOYEES PER DEPARTMENT ==========
++----------+--------------+
+|Department|Employee Count|
++----------+--------------+
+|        HR|             2|
+|      NULL|             1|
+|   Finance|             3|
+| Marketing|             3|
+|        IT|             2|
++----------+--------------+
+
+
+========== AVERAGE SALARY BY DEPARTMENT ==========
++----------+------------------+
+|Department|    Average Salary|
++----------+------------------+
+|   Finance| 71666.66666666667|
+|        IT|           60000.0|
+|        HR|           46500.0|
+| Marketing|44666.666666666664|
++----------+------------------+
+
+
+========== SALARY STATISTICS ==========
++----------+--------------+-------------+
+|Department|Highest Salary|Lowest Salary|
++----------+--------------+-------------+
+|        HR|         48000|        45000|
+|      NULL|         55000|        55000|
+|   Finance|         85000|        52000|
+| Marketing|         50000|        42000|
+|        IT|         60000|        60000|
++----------+--------------+-------------+
+
+
+========== TOP 5 HIGHEST PAID EMPLOYEES ==========
++----------+-------+----------+----+------+-----------+
+|EmployeeID|   Name|Department| Age|Salary|JoiningDate|
++----------+-------+----------+----+------+-----------+
+|       106|  Frank|   Finance|  41| 85000| 2016-07-18|
+|       110|   Jack|   Finance|  38| 78000| 2018-04-05|
+|       102|    Bob|        IT|  32| 60000| 2020-05-20|
+|       108|  Henry|      NULL|  26| 55000| 2022-10-01|
+|       103|Charlie|   Finance|NULL| 52000| 2021-03-10|
++----------+-------+----------+----+------+-----------+
+only showing top 5 rows
+
+========== EMPLOYEES ABOVE AVERAGE SALARY ==========
++----------+-----+----------+---+------+-----------+
+|EmployeeID| Name|Department|Age|Salary|JoiningDate|
++----------+-----+----------+---+------+-----------+
+|       102|  Bob|        IT| 32| 60000| 2020-05-20|
+|       106|Frank|   Finance| 41| 85000| 2016-07-18|
+|       110| Jack|   Finance| 38| 78000| 2018-04-05|
++----------+-----+----------+---+------+-----------+
+
+
+========== JOINING YEAR ==========
++-------+----------+------------+
+|   Name|Department|Joining Year|
++-------+----------+------------+
+|  Alice|        HR|        2022|
+|    Bob|        IT|        2020|
+|Charlie|   Finance|        2021|
+|  David|        IT|        2019|
+|    Eva|        HR|        NULL|
+|  Frank|   Finance|        2016|
+|  Grace| Marketing|        2023|
+|  Grace| Marketing|        2023|
+|  Henry|      NULL|        2022|
+|    Ivy| Marketing|        2021|
+|   Jack|   Finance|        2018|
++-------+----------+------------+
+
+
+========== JOINED BEFORE 2021 ==========
++-----+----------+-----------+
+| Name|Department|JoiningDate|
++-----+----------+-----------+
+|  Bob|        IT| 2020-05-20|
+|David|        IT| 2019-11-25|
+|Frank|   Finance| 2016-07-18|
+| Jack|   Finance| 2018-04-05|
++-----+----------+-----------+
+
+
+========== EMPLOYEE MANAGERS ==========
++-------+----------+-------+------+
+|   Name|Department|Manager|Salary|
++-------+----------+-------+------+
+|  Alice|        HR|  Susan| 45000|
+|    Bob|        IT|Michael| 60000|
+|Charlie|   Finance| Robert| 52000|
+|  David|        IT|Michael|  NULL|
+|    Eva|        HR|  Susan| 48000|
+|  Frank|   Finance| Robert| 85000|
+|  Grace| Marketing|   Emma| 42000|
+|  Grace| Marketing|   Emma| 42000|
+|    Ivy| Marketing|   Emma| 50000|
+|   Jack|   Finance| Robert| 78000|
++-------+----------+-------+------+
+
+
+========== BONUS (10%) ==========
++-------+------+------+
+|   Name|Salary| Bonus|
++-------+------+------+
+|  Alice| 45000|4500.0|
+|    Bob| 60000|6000.0|
+|Charlie| 52000|5200.0|
+|  David|  NULL|  NULL|
+|    Eva| 48000|4800.0|
+|  Frank| 85000|8500.0|
+|  Grace| 42000|4200.0|
+|  Grace| 42000|4200.0|
+|  Henry| 55000|5500.0|
+|    Ivy| 50000|5000.0|
+|   Jack| 78000|7800.0|
++-------+------+------+
+
+
+========== SPARK SQL ==========
++-----+----------+------+
+| Name|Department|Salary|
++-----+----------+------+
+|Frank|   Finance| 85000|
+| Jack|   Finance| 78000|
++-----+----------+------+
+
+
+========== PROJECT COMPLETED ==========
+Employee Analytics Project completed successfully!
